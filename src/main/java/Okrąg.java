@@ -1,24 +1,22 @@
-package figury;
 
 public class Okrąg extends Figura {
-    private double promień;
-    public Okrąg(double promień){
-        this.promień=promień;
-        rodzaj="figury.figury.Okrąg";
+    private double promieñ;
+
+    public Okrąg(double promieñ) {
+        this.promieñ = promieñ;
+        rodzaj = "Okrąg";
         // TODO Auto-generated constructor stub
     }
 
     @Override
     public double getPole() {
         // TODO Auto-generated method stub
-        return Math.PI*promień*promień;
+        return Math.PI * promieñ * promieñ;
     }
 
     @Override
     public double getObwód() {
         // TODO Auto-generated method stub
-        return 2*Math.PI*promień;
+        return 2 * Math.PI * promieñ;
     }
 }
-
-

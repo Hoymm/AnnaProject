@@ -1,11 +1,10 @@
-package figury;
 
 public class Kwadrat extends Figura {
     private double bok;
     public Kwadrat(double bok) {
         // TODO Auto-generated constructor stub
         this.bok=bok;
-        rodzaj="figury.figury.Kwadrat";
+        rodzaj="Kwadrat";
     }
 
     @Override

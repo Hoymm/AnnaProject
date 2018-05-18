@@ -1,27 +1,16 @@
-import figury.Figura;
-
 import java.util.ArrayList;
-import java.util.List;
 
-public class Main {
+public class MainClass {
 
     public static void main(String[] args) {
-        List <Figura> listaFigur = stwórzListęZFigurami();
-        wypiszFigury(listaFigur);
-    }
+        ArrayList<Figura> figura=new ArrayList<>();
 
-    private static List<Figura> stwórzListęZFigurami() {
-        List<Figura> listaFigur = new ArrayList<>();
-        listaFigur.add(new figury.Prostokąt(2, 4));
-        listaFigur.add(new figury.Kwadrat(3.5));
-        listaFigur.add(new figury.Okrąg(10));
-        return listaFigur;
-    }
+        figura.add(new Prostokąt(2, 4));
+        figura.add(new Kwadrat(3.5));
+        figura.add(new Okrąg(10));
+        for(int i=0;i<figura.size();i++)
+            System.out.println(figura.get(i).getRodzaj()+" pole: "+figura.get(i).getPole()+", obwód:"+figura.get(i).getObwód());
 
-    private static void wypiszFigury(List<Figura> listaFigur) {
-        for (Figura figura : listaFigur){
-            System.out.printf("%s pole %4.2f, obwód: %4.2f\n", figura.getRodzaj(), figura.getPole(), figura.getObwód());
-        }
     }
 
 }
