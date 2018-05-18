@@ -1,23 +1,20 @@
-import figury.Figura;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList <Figura> listaFigur = stwórzListęZFigurami();
-        wypiszFigury(listaFigur);
+        wypiszFigury(przykładowaListaZFigurami(), System.out::println);
     }
 
-    private static ArrayList<Figura> stwórzListęZFigurami() {
-        ArrayList<Figura> listaFigur = new ArrayList<>();
-        listaFigur.add(new figury.Prostokąt(2, 4));
-        listaFigur.add(new figury.Kwadrat(3.5));
-        listaFigur.add(new figury.Okrąg(10));
-        return listaFigur;
+    private static List<Figura> przykładowaListaZFigurami() {
+        return Arrays.asList(new Prostokąt(2, 4), new Kwadrat(3.5), new Okrąg(10));
     }
-    private static void wypiszFigury(ArrayList<Figura> listaFigur) {
-        for (Figura figura : listaFigur){
-            System.out.println(figura.getRodzaj() + " pole " + figura.getPole() + ", obwód: " + figura.getObwód());
-            System.out.printf("%s pole %4.2f, obwód: %4.2f\n", figura.getRodzaj(), figura.getPole(), figura.getObwód());
+
+    private static <T extends Figura> void wypiszFigury(List <T> listaFigur, Consumer <String> strumieńDoWypisu) {
+        for (T figura : listaFigur){
+            String tekstDoWypisania = String.format("%s pole %.2f, obwód: %.2f", figura.getClass().getTypeName(), figura.pole(), figura.obwód());
+            strumieńDoWypisu.accept(tekstDoWypisania);
         }
     }
 }
